@@ -7,8 +7,10 @@ import PageWrapper from './components/PageWrapper'
 import LandingPage from './components/LandingPage'
 import OpponentPage from './components/OpponentPage'
 import ChallengePage from './components/ChallengePage'
-import RunPage from './components/RunPage'
+import ProfilePage from './components/ProfilePage'
+import ReadyPage from './components/ReadyPage'
 import reducer from './components/reducer'
+
 
 const store = createStore(reducer)
 
@@ -20,8 +22,9 @@ class App extends Component {
           <PageWrapper>
             <Switch>
               <Route exact path='/' component={LandingPage} />
+              <Route path='/profile' component={ProfilePage} />
               <Route path='/start' component={OpponentPage} />
-              <Route path='/run' component={RunPage} />
+              <Route path='/ready' component={ReadyPage} />
               <Route path='/:challenge' component={ChallengePage} />
             </Switch>
           </PageWrapper>

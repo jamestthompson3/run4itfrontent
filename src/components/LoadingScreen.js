@@ -1,11 +1,9 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
-import PageWrapper from './PageWrapper'
-
 
 const delay = () => new Promise(resolve => {
-  setTimeout(() => resolve(), 2000)
+  setTimeout(() => resolve(), 1000)
 })
 
 const Wrapper = styled.div`

@@ -49,7 +49,7 @@ class ChallengePage extends Component {
     }
     if (start) {
       return (
-        <Redirect to="/run" />
+        <Redirect to="/ready" />
       )
     }
     return (
@@ -58,7 +58,7 @@ class ChallengePage extends Component {
             <h1>Challenge Details</h1>
             <h2>{selectedChallenge}</h2>
             <h2>{selectedDistance}</h2>
-            <StartButton onClick={this.findOpponent} >Find opponent</StartButton>
+            <StartButton onClick={this.findOpponent}>Find opponent</StartButton>
           </ChallengeContainer>
         : <Redirect to='/' />
     )

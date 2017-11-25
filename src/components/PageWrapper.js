@@ -16,14 +16,16 @@ const Wrapper = styled.div`
   box-shadow: 0 2px 5px 0 #403f3f;
   display: flex;
   flex-direction: column;
+  font-family: Barlow;
 `
 
 const Header = styled.header`
-  background-color: #000;
+  background-color: transparent;
   height: 70px;
   padding: 20px;
   color: white;
   text-align: center;
+  position: absolute;
 `
 
 const Content = styled.main`
@@ -36,6 +38,7 @@ const Content = styled.main`
 
 const Logo = styled.div`
   display: flex;
+  background: transparent;
 `
 
 
@@ -50,11 +53,6 @@ const LogoText = styled.h1`
 const PageWrapper = ({ children }) => (
   <Background>
     <Wrapper>
-      <Header>
-        <Logo>
-          <LogoText>Run 4 it! </LogoText>
-        </Logo>
-      </Header>
       <Content>
         {children}
       </Content>

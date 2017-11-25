@@ -1,16 +1,19 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import logo from '../img/logo.svg'
 
 const LandingContainer = styled.div`
-  height: 85%;
-  width: 85%;
+  height: 100%;
+  width: 100%;
   margin: auto;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: space-around;
   color: white;
-  flex-wrap: wrap;
-  font-family: Gotham-Bold;
+  background-image: url(/start-screen.jpg);
+  background-repeat: no-repeat;
+  background-position: 100%;
 `
 const Avatar = styled.div`
   border-radius: 50px;
@@ -22,14 +25,15 @@ const Avatar = styled.div`
 `
 const StartButton = styled.button`
   color: #fff;
-  border: 2px solid #3eff73;
-  border-radius: 20px;
+  border: 2px solid #ff345d;
+  border-radius: 100px;
   padding: 8px 12px;
-  background: #80000000;
+  background: rgba(0, 0, 0, 0.5);
   font-size: 18px;
   margin: auto;
   cursor: pointer;
-  width: 100%;
+  width: 238px;
+  height: 57px;
 `
 const Mask = styled.div`
   position: absolute;
@@ -39,8 +43,8 @@ const Mask = styled.div`
   left: 17.6rem;
 `
 const StyledLink = styled(Link)`
-  width: 100%;
-  margin-top: 1rem;
+  width: 238px;
+  margin: auto;
 `
 const Player = styled.div`
   height: 100%;
@@ -50,7 +54,8 @@ const Player = styled.div`
 `
 const LandingPage = () =>
   <LandingContainer>
-    <StyledLink to='/start'><StartButton>Start Running!</StartButton></StyledLink>
+    <img src={logo} style={{ margin: 'auto' }} />
+    <StyledLink to='/profile'><StartButton>Start Running!</StartButton></StyledLink>
   </LandingContainer>
 
 export default LandingPage
