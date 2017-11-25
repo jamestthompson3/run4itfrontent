@@ -1,4 +1,5 @@
-export const selectChallenge = challenge => ({
+export const selectChallenge = (challenge, distance) => ({
   type: 'SELECTED_CHALLENGE',
-  challenge
+  challenge,
+  distance
 })

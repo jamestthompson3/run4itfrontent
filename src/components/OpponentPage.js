@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { Component } from 'react'
 import styled from 'styled-components'
+import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
 
+import * as actions from './actions'
 
 const challengeList = [
   { type: 'Ranked Run', distance: '2km', color: '#3eff73' },
@@ -27,6 +30,7 @@ const Challenge = styled.div`
   color: white;
   margin: auto;
   display: flex;
+  cursor: pointer;
   justify-content: space-around;
   align-items: center;
   span {
@@ -35,13 +39,32 @@ const Challenge = styled.div`
   }
 `
 
-const OpponentPage = () =>
-  <OppWrapper>
-    <h1>Choose a running challenge!</h1>
-    { challengeList.map((challenge, i) =>
-      <Challenge key={i} color={challenge.color}>
-        {challenge.type} <span>{challenge.distance}</span>
-      </Challenge>)}
-  </OppWrapper>
+class OpponentPage extends Component {
 
-export default OpponentPage
+  sendChallenge = (type, distance) => {
+    const { selectChallenge } = this.props
+    selectChallenge(type, distance)
+  }
+
+  render() {
+    const { selectedChallenge } = this.props
+    return (
+      selectedChallenge != null
+      ? <Redirect to={`/${selectedChallenge}/`} />
+      : <OppWrapper>
+          <h1>Choose a running challenge!</h1>
+          { challengeList.map((challenge, i) =>
+            <Challenge key={i} color={challenge.color} onClick={() => this.sendChallenge(challenge.type, challenge.distance)}>
+             {challenge.type} <span>{challenge.distance}</span>
+            </Challenge>)}
+        </OppWrapper>
+    )
+  }
+
+}
+
+const mapState = ({ selectedChallenge }) => ({
+  selectedChallenge
+})
+
+export default connect(mapState, actions)(OpponentPage)

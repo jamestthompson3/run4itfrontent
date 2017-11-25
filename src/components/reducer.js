@@ -1,6 +1,7 @@
 
 const initialState = {
-  selectedChallenge: null
+  selectedChallenge: null,
+  selectedDistance: null
 }
 
 const reducer = (state = initialState, action) => {
@@ -8,7 +9,8 @@ const reducer = (state = initialState, action) => {
     case 'SELECTED_CHALLENGE':
       return {
         ...state,
-        selectedChallenge: action.challenge
+        selectedChallenge: action.challenge,
+        selectedDistance: action.distance
       }
     default:
       return state
