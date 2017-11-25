@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import appscreen from '../img/appscreen.jpg'
 
 
 const Background = styled.div`
@@ -32,7 +33,7 @@ const Content = styled.main`
   position: relative;
   flex: 1;
   overflow-y: auto;
-  background-image: linear-gradient(transparent, black),url(appscreen.jpg);
+  background-image: linear-gradient(transparent, black),url(${appscreen});
   color: white;
 `
 

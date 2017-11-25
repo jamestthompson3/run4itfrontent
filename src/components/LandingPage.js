@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import logo from '../img/logo.svg'
+import startscreen from '../img/start-screen.jpg'
 
 const LandingContainer = styled.div`
   height: 100%;
@@ -11,7 +12,7 @@ const LandingContainer = styled.div`
   flex-direction: column;
   justify-content: space-around;
   color: white;
-  background-image: url(/start-screen.jpg);
+  background-image: url(${startscreen});
   background-repeat: no-repeat;
   background-position: 50%;
 `

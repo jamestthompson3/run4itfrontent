@@ -10,6 +10,7 @@ import star from '../img/star.svg'
 import cup from '../img/cup.png'
 import store from '../img/store.png'
 
+
 const ProfileWrapper = styled.div`
   height: 100%;
   width: 100%;
