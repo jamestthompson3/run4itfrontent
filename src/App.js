@@ -1,21 +1,28 @@
 import React, { Component } from 'react'
 import { HashRouter as Router, Route, Switch } from 'react-router-dom'
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
 
 import PageWrapper from './components/PageWrapper'
-import StartPage from './components/StartPage'
 import LandingPage from './components/LandingPage'
+import OpponentPage from './components/OpponentPage'
+import reducer from './components/reducer'
+
+const store = createStore(reducer)
 
 class App extends Component {
   render() {
     return (
-      <Router>
-        <PageWrapper>
-          <Switch>
-            <Route exact path='/' component={LandingPage} />
-            <Route path='/start' component={StartPage} />
-          </Switch>
-        </PageWrapper>
-      </Router>
+      <Provider store={store}>
+        <Router>
+          <PageWrapper>
+            <Switch>
+              <Route exact path='/' component={LandingPage} />
+              <Route path='/start' component={OpponentPage} />
+            </Switch>
+          </PageWrapper>
+        </Router>
+      </Provider>
     )
   }
 }

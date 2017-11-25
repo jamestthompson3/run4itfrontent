@@ -10,6 +10,7 @@ const LandingContainer = styled.div`
   justify-content: space-between;
   color: white;
   flex-wrap: wrap;
+  font-family: Gotham-Bold;
 `
 const Avatar = styled.div`
   border-radius: 50px;
@@ -20,11 +21,11 @@ const Avatar = styled.div`
   border: ${p => p.number === 1 ? '2px solid red' : '2px solid blue'};
 `
 const StartButton = styled.button`
-  color: #6ebf79;
-  border: 2px solid;
-  border-radius: 5px;
+  color: #fff;
+  border: 2px solid #3eff73;
+  border-radius: 20px;
   padding: 8px 12px;
-  background: transparent;
+  background: #80000000;
   font-size: 18px;
   margin: auto;
   cursor: pointer;
@@ -49,14 +50,7 @@ const Player = styled.div`
 `
 const LandingPage = () =>
   <LandingContainer>
-    <Player number={1}>
-      <Avatar number={1} style={{ right: '16.5rem' }} />
-    </Player>
-    <Player number={2}>
-      <Mask />
-      <Avatar number={2} style={{ right: '14.8rem', top: '6rem' }} />
-    </Player>
-    <StyledLink to='/start'><StartButton>Let&#39;s go!</StartButton></StyledLink>
+    <StyledLink to='/start'><StartButton>Start Running!</StartButton></StyledLink>
   </LandingContainer>
 
 export default LandingPage
