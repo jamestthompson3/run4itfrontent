@@ -50,12 +50,12 @@ class OpponentPage extends Component {
     const { selectedChallenge } = this.props
     return (
       selectedChallenge != null
-      ? <Redirect to={`/${selectedChallenge}/`} />
-      : <OppWrapper>
+        ? <Redirect to={`/${selectedChallenge}/`} />
+        : <OppWrapper>
           <h1>Choose a running challenge!</h1>
           { challengeList.map((challenge, i) =>
             <Challenge key={i} color={challenge.color} onClick={() => this.sendChallenge(challenge.type, challenge.distance)}>
-             {challenge.type} <span>{challenge.distance}</span>
+              {challenge.type} <span>{challenge.distance}</span>
             </Challenge>)}
         </OppWrapper>
     )

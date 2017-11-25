@@ -31,6 +31,7 @@ const Content = styled.main`
   flex: 1;
   overflow-y: auto;
   background: #000;
+  color: white;
 `
 
 const Logo = styled.div`
