@@ -32,7 +32,7 @@ const Content = styled.main`
   position: relative;
   flex: 1;
   overflow-y: auto;
-  background: #000;
+  background-image: linear-gradient(transparent, black),url(appscreen.jpg);
   color: white;
 `
 

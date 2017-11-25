@@ -11,17 +11,76 @@ const ChallengeContainer = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
+  justify-content: space-around;
+  align-items: center;
 `
 const StartButton = styled.button`
-  color: #fff;
-  border: 2px solid #3eff73;
-  border-radius: 20px;
-  padding: 8px 12px;
-  background: #80000000;
-  font-size: 20px;
-  margin: auto;
+  width: 80%;
+  height: 70px;
   cursor: pointer;
-  width: 300px;
+  border-radius: 100px;
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 15px 0 rgba(255, 52, 93, 0.5);
+  border: solid 1px #ff345d;
+  font-size: 28px;
+  font-weight: bold;
+  font-style: italic;
+  font-stretch: condensed;
+  letter-spacing: 2px;
+  text-align: center;
+  color: #ffffff;
+`
+const Title = styled.h1`
+  width: 375px;
+  height: 42px;
+  font-size: 35px;
+  margin: 0;
+  font-weight: bold;
+  font-style: italic;
+  font-stretch: condensed;
+  text-align: center;
+  color: #ff345d;
+  text-shadow: 0 0 3px #ff345d;
+`
+const Details = styled.h2`
+  width: 375px;
+  height: 42px;
+  font-family: Barlow;
+  font-size: 35px;
+  font-weight: bold;
+  font-style: italic;
+  font-stretch: condensed;
+  text-align: center;
+  color: #ffffff;
+  text-shadow: 0 0 3px #ff345d;
+`
+const DetailContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  h2 {
+    width: 150px;
+    margin: 0;
+    height: 48px;
+    font-size: 40px;
+    font-weight: bold;
+    font-style: italic;
+    font-stretch: condensed;
+    text-align: center;
+    color: #ffffff;
+    text-shadow: 0 0 3px #ff345d;
+  }
+  h3 {
+    width: 120.8px;
+    margin: 0;
+    height: 19px;
+    font-size: 16px;
+    font-weight: 500;
+    font-stretch: condensed;
+    letter-spacing: 2px;
+    text-align: center;
+    color: #ff345d;
+  }
 `
 
 class ChallengePage extends Component {
@@ -55,11 +114,22 @@ class ChallengePage extends Component {
     return (
       selectedChallenge != null
         ? <ChallengeContainer>
-            <h1>Challenge Details</h1>
-            <h2>{selectedChallenge}</h2>
-            <h2>{selectedDistance}</h2>
-            <StartButton onClick={this.findOpponent}>Find opponent</StartButton>
-          </ChallengeContainer>
+          <Title>Ready to Run?</Title>
+          <Details>Challenge Details</Details>
+          <div style={{ display: 'flex', width: '100%', alignItems: 'center', justifyContent: 'center' }}>
+            <DetailContainer>
+              <h3>DISTANCE</h3>
+              <h2>
+                {selectedDistance}
+              </h2>
+            </DetailContainer>
+            <DetailContainer>
+              <h3>BET AMOUNT</h3>
+              <h2>{selectedChallenge}<span style={{ color: '#ff345d' }}> C</span></h2>
+            </DetailContainer>
+          </div>
+          <StartButton onClick={this.findOpponent}>Find Runner</StartButton>
+        </ChallengeContainer>
         : <Redirect to='/' />
     )
   }

@@ -13,7 +13,7 @@ const LandingContainer = styled.div`
   color: white;
   background-image: url(/start-screen.jpg);
   background-repeat: no-repeat;
-  background-position: 100%;
+  background-position: 50%;
 `
 const Avatar = styled.div`
   border-radius: 50px;

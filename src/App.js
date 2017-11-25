@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
+import { injectGlobal } from 'styled-components'
 
 import PageWrapper from './components/PageWrapper'
 import LandingPage from './components/LandingPage'
@@ -12,6 +13,15 @@ import ReadyPage from './components/ReadyPage'
 import reducer from './components/reducer'
 
 
+injectGlobal`
+  @font-face {
+    font-family: Barlow;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+  }
+`
 const store = createStore(reducer)
 
 class App extends Component {

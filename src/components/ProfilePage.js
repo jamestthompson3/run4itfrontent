@@ -14,7 +14,6 @@ const ProfileWrapper = styled.div`
   height: 100%;
   width: 100%;
   overflow-x: hidden;
-  background-image: url(appscreen.jpg);
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -106,7 +105,6 @@ const TrainButton = styled.button`
 `
 const ProfileFooter = styled.div`
   display: flex;
-  background: linear-gradient(transparent, black);
   width: 100%;
   height: 200px;
   img {

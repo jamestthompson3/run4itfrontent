@@ -7,8 +7,7 @@ const delay = () => new Promise(resolve => {
 })
 
 const Wrapper = styled.div`
-  background: linear-gradient(to bottom, #3ae267, #3BE3BC);
-  color: black;
+  color: White;
   height: 100%;
   display: flex;
   flex-direction: column;
