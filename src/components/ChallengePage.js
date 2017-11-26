@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
+import * as actions from './actions'
 
 import LoadingScreen from './LoadingScreen'
 
@@ -88,11 +89,24 @@ class ChallengePage extends Component {
     loadingScreen: false,
     start: false
   }
+
+  componentDidMount() {
+    const { sendCoords } = this.props
+    if ('geolocation' in navigator) {
+      navigator.geolocation.getCurrentPosition(position => {
+        sendCoords(position.coords.latitude, position.coords.longitude)
+      })
+    }
+    else {
+      alert('you must have geolocation enabled to compete!')
+    }
+  }
+
   findOpponent = () => {
     this.setState({ loadingScreen: true })
   }
   render() {
-    const { selectedChallenge, selectedDistance } = this.props
+    const { selectedChallenge, selectedDistance, connected } = this.props
     const { loadingScreen, start } = this.state
     if (loadingScreen) {
       return (
@@ -114,6 +128,10 @@ class ChallengePage extends Component {
     return (
       selectedChallenge != null
         ? <ChallengeContainer>
+          { connected
+            ? null
+            : <h2> You must be online and have location services enabled to compete</h2>
+          }
           <Title>Ready to Run?</Title>
           <Details>Challenge Details</Details>
           <div style={{ display: 'flex', width: '100%', alignItems: 'center', justifyContent: 'center' }}>
@@ -135,8 +153,10 @@ class ChallengePage extends Component {
   }
 }
 
-const mapState = ({ selectedChallenge, selectedDistance }) => ({
+const mapState = ({ selectedChallenge, selectedDistance, connected, coords }) => ({
   selectedChallenge,
-  selectedDistance
+  selectedDistance,
+  connected,
+  coords
 })
-export default connect(mapState)(ChallengePage)
+export default connect(mapState, actions)(ChallengePage)

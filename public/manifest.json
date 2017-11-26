@@ -1,15 +1,15 @@
 {
-  "short_name": "Run 4 it! ",
-  "name": "Run 4 it!",
+  "short_name": "Run 4 it!",
+  "name": "Run 4 it! | Fitness, but fun",
   "icons": [
     {
-      "src": "./logo.png",
+      "src": "./run4it.png",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     }
   ],
   "start_url": "./index.html",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#000000"
+  "theme_color": "#000",
+  "background_color": "#000"
 }
