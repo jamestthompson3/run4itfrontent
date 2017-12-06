@@ -5,11 +5,10 @@ import { injectGlobal } from 'styled-components'
 
 import PageWrapper from './components/PageWrapper'
 import LandingPage from './components/LandingPage'
-import OpponentPage from './components/OpponentPage'
-import ChallengePage from './components/ChallengePage'
 import ProfilePage from './components/ProfilePage'
-import ReadyPage from './components/ReadyPage'
+import Prematch from './components/Prematch'
 import * as actions from './components/actions'
+import OpponentPage from './components/OpponentPage'
 
 
 
@@ -28,19 +27,16 @@ injectGlobal`
 class App extends Component {
 
   render() {
-    return (
-      <Router>
-        <PageWrapper>
-          <Switch>
-            <Route exact path='/' component={LandingPage} />
-            <Route path='/profile' component={ProfilePage} />
-            <Route path='/start' component={OpponentPage} />
-            <Route path='/ready' component={ReadyPage} />
-            <Route path='/:challenge' component={ChallengePage} />
-          </Switch>
-        </PageWrapper>
-      </Router>
-    )
+    return <Router>
+      <PageWrapper>
+        <Switch>
+          <Route exact path="/" component={LandingPage} />
+          <Route path='/start' component={OpponentPage} />
+          <Route path="/profile" component={ProfilePage} />
+          <Route path="/prematch" component={Prematch} />
+        </Switch>
+      </PageWrapper>
+    </Router>
   }
 }
 

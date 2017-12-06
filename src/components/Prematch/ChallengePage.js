@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
-import * as actions from './actions'
+import * as actions from '../actions'
+import { emitDistance } from '../../socketUtils/emit'
 
 import LoadingScreen from './LoadingScreen'
 
@@ -95,6 +96,7 @@ class ChallengePage extends Component {
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition(position => {
         sendCoords(position.coords.latitude, position.coords.longitude)
+        emitDistance(0)
       })
     }
     else {
@@ -122,33 +124,31 @@ class ChallengePage extends Component {
     }
     if (start) {
       return (
-        <Redirect to="/ready" />
+        <Redirect to="ready" />
       )
     }
     return (
-      selectedChallenge != null
-        ? <ChallengeContainer>
-          { connected
-            ? null
-            : <h2> You must be online and have location services enabled to compete</h2>
-          }
-          <Title>Ready to Run?</Title>
-          <Details>Challenge Details</Details>
-          <div style={{ display: 'flex', width: '100%', alignItems: 'center', justifyContent: 'center' }}>
-            <DetailContainer>
-              <h3>DISTANCE</h3>
-              <h2>
-                {selectedDistance}
-              </h2>
-            </DetailContainer>
-            <DetailContainer>
-              <h3>BET AMOUNT</h3>
-              <h2>{selectedChallenge}<span style={{ color: '#ff345d' }}> C</span></h2>
-            </DetailContainer>
-          </div>
-          <StartButton onClick={this.findOpponent}>Find Runner</StartButton>
-        </ChallengeContainer>
-        : <Redirect to='/' />
+      <ChallengeContainer>
+        { connected
+          ? null
+          : <h2> You must be online and have location services enabled to compete</h2>
+        }
+        <Title>Ready to Run?</Title>
+        <Details>Challenge Details</Details>
+        <div style={{ display: 'flex', width: '100%', alignItems: 'center', justifyContent: 'center' }}>
+          <DetailContainer>
+            <h3>DISTANCE</h3>
+            <h2>
+              {selectedDistance}
+            </h2>
+          </DetailContainer>
+          <DetailContainer>
+            <h3>BET AMOUNT</h3>
+            <h2>{selectedChallenge}<span style={{ color: '#ff345d' }}> C</span></h2>
+          </DetailContainer>
+        </div>
+        <StartButton onClick={this.findOpponent}>Find Runner</StartButton>
+      </ChallengeContainer>
     )
   }
 }

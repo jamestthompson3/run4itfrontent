@@ -86,8 +86,8 @@ class OpponentPage extends Component {
   render() {
     const { selectedChallenge } = this.props
     return (
-      selectedChallenge != null
-        ? <Redirect to={`/${selectedChallenge}/`} />
+      selectedChallenge !== null
+        ? <Redirect to={`prematch/${selectedChallenge}/`} />
         : <OppWrapper>
           <Title>Ranked Run</Title>
           <Description>

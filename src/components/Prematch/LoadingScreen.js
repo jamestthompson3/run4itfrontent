@@ -44,9 +44,9 @@ class LoadingScreen extends Component {
     const { messages } = this.props
 
     return (
-        <Wrapper>
-          {messages[i]}
-        </Wrapper>
+      <Wrapper>
+        {messages[i]}
+      </Wrapper>
     )
   }
 }

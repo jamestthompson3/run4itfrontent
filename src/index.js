@@ -5,7 +5,7 @@ import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import App from './App'
 import reducer from './components/reducer'
-import * as actions from './components/actions'
+import { emitDistance } from './socketUtils/emit'
 
 const store = createStore(reducer)
 
@@ -13,12 +13,13 @@ render(
   <Provider store={store}>
     <App />
   </Provider>, document.getElementById('root'))
-registerServiceWorker()
+registerServiceWorker('service-worker')
+registerServiceWorker('post-distance')
 
 store.subscribe(() => {
   const { distance } = store.getState()
   if (distance) {
-    actions.emitDistance(distance)
+    emitDistance(distance)
   }
   return
 })

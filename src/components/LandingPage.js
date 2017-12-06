@@ -16,14 +16,7 @@ const LandingContainer = styled.div`
   background-repeat: no-repeat;
   background-position: 50%;
 `
-const Avatar = styled.div`
-  border-radius: 50px;
-  width: 35px;
-  height: 35px;
-  background: gray;
-  position: absolute;
-  border: ${p => p.number === 1 ? '2px solid red' : '2px solid blue'};
-`
+
 const StartButton = styled.button`
   color: #fff;
   border: 2px solid #ff345d;
@@ -36,22 +29,10 @@ const StartButton = styled.button`
   width: 238px;
   height: 57px;
 `
-const Mask = styled.div`
-  position: absolute;
-  border-left: 2px solid #000;
-  width: 100%;
-  height: 96px;
-  left: 17.6rem;
-`
+
 const StyledLink = styled(Link)`
   width: 238px;
   margin: auto;
-`
-const Player = styled.div`
-  height: 100%;
-  border-right: ${p => p.number === 1 ? '2px solid #fff' : 'none'};
-  border-left: ${p => p.number === 1 ? 'none' : '2px solid #fff'};
-  width: 47%;
 `
 const LandingPage = () =>
   <LandingContainer>
